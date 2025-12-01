@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 contract MyToken {
+    address public contractAddress;
     string public name = "MyToken";
     string public symbol = "MTK";
     uint8 public decimals = 18;
@@ -14,6 +15,7 @@ contract MyToken {
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
     constructor(uint256 _initialSupply) {
+        contractAddress = address(this);
         totalSupply = _initialSupply;
         balanceOf[msg.sender] = _initialSupply;
     }
